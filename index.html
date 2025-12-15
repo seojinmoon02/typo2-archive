@@ -31,6 +31,104 @@
 
     </main>
 
+    <!-- ROUTE ANIMATION (page bottom) -->
+<section class="route">
+  <div class="route-inner">
+
+    <div class="route-line">
+      <!-- 기준선 -->
+      <div class="line"></div>
+
+      <!-- 포인트(0, 1/4, 2/4, 3/4, 1) -->
+      <div class="stop s0">
+        <!-- 서울대입구역 표지판 (SVG) -->
+        <div class="icon">
+          <svg viewBox="0 0 64 64" width="34" height="34" aria-hidden="true">
+            <rect x="10" y="6" width="44" height="34" rx="6" fill="#FFE600" stroke="#000" stroke-width="2"/>
+            <path d="M20 16h24" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+            <path d="M20 24h18" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+            <path d="M32 40v18" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+            <path d="M22 58h20" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="label">서울대입구역</div>
+      </div>
+
+      <div class="stop s1">
+        <div class="dot"></div>
+        <div class="label">사당역</div>
+      </div>
+
+      <div class="stop s2">
+        <div class="dot"></div>
+        <div class="label">충무로역</div>
+      </div>
+
+      <div class="stop s3">
+        <div class="dot"></div>
+        <div class="label">추무로역 버스정류장</div>
+      </div>
+
+      <div class="stop s4">
+        <!-- 남산타워 아이콘 (SVG) -->
+        <div class="icon">
+          <svg viewBox="0 0 64 64" width="34" height="34" aria-hidden="true">
+            <path d="M30 8h4v8h-4z" fill="#fff"/>
+            <path d="M24 16h16" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+            <path d="M22 22h20" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+            <path d="M32 22l-8 34h16z" fill="#FFE600" stroke="#000" stroke-width="2" />
+            <path d="M18 58h28" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="label">남산타워</div>
+      </div>
+
+      <!-- 이동 아이콘들 -->
+      <!-- 지하철: 0 -> 1/4 -->
+      <div class="mover subway one" aria-hidden="true">
+        <svg viewBox="0 0 64 64" width="28" height="28">
+          <rect x="16" y="10" width="32" height="40" rx="10" fill="#FFE600" stroke="#000" stroke-width="2"/>
+          <rect x="22" y="18" width="20" height="12" rx="3" fill="#000"/>
+          <circle cx="26" cy="44" r="3" fill="#000"/>
+          <circle cx="38" cy="44" r="3" fill="#000"/>
+        </svg>
+      </div>
+
+      <!-- 지하철: 0 -> 2/4 -->
+      <div class="mover subway two" aria-hidden="true">
+        <svg viewBox="0 0 64 64" width="28" height="28">
+          <rect x="16" y="10" width="32" height="40" rx="10" fill="#FFE600" stroke="#000" stroke-width="2"/>
+          <rect x="22" y="18" width="20" height="12" rx="3" fill="#000"/>
+          <circle cx="26" cy="44" r="3" fill="#000"/>
+          <circle cx="38" cy="44" r="3" fill="#000"/>
+        </svg>
+      </div>
+
+      <!-- 발자국: 1/4 -> 3/4 -->
+      <div class="mover foot" aria-hidden="true">
+        <svg viewBox="0 0 64 64" width="22" height="22">
+          <path d="M28 18c3-6 10-6 13 0 2 4 1 10-2 13-4 4-11 4-15 0-3-3-4-9-2-13z" fill="#FFE600" stroke="#000" stroke-width="2"/>
+          <circle cx="23" cy="18" r="3" fill="#FFE600" stroke="#000" stroke-width="2"/>
+          <circle cx="18" cy="23" r="3" fill="#FFE600" stroke="#000" stroke-width="2"/>
+          <circle cx="18" cy="30" r="3" fill="#FFE600" stroke="#000" stroke-width="2"/>
+        </svg>
+      </div>
+
+      <!-- 버스: 3/4 -> 1 -->
+      <div class="mover bus" aria-hidden="true">
+        <svg viewBox="0 0 64 64" width="28" height="28">
+          <rect x="14" y="14" width="36" height="32" rx="8" fill="#FFE600" stroke="#000" stroke-width="2"/>
+          <rect x="20" y="20" width="24" height="12" rx="3" fill="#000"/>
+          <circle cx="24" cy="46" r="3" fill="#000"/>
+          <circle cx="40" cy="46" r="3" fill="#000"/>
+        </svg>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
     <!-- 에세이 -->
     <section id="essay" class="essay">
       <div class="essay-inner">

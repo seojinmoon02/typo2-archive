@@ -266,4 +266,134 @@ body {
   background-color: #438bff; /* 하늘 */
 }
 
+/* ===== Route animation section ===== */
+.route{
+  background:#000;
+  color:#fff;
+  padding: 90px 20px 120px;
+}
 
+.route-inner{
+  width: min(980px, 92vw);
+  margin: 0 auto;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.route-line{
+  position: relative;
+  height: 120px;
+  margin-top: 20px;
+}
+
+/* 기준선 */
+.route-line .line{
+  position:absolute;
+  left: 0;
+  right: 0;
+  top: 58px;
+  height: 2px;
+  background: rgba(255,255,255,0.4);
+}
+
+/* 정거장(포인트) */
+.stop{
+  position:absolute;
+  top: 10px;
+  transform: translateX(-50%);
+  text-align:center;
+  width: 170px;
+  pointer-events:none;
+}
+
+.stop .label{
+  margin-top: 10px;
+  font-size: 0.95rem;
+  line-height: 1.2;
+  opacity: 0.95;
+}
+
+.stop .dot{
+  position:absolute;
+  left: 50%;
+  top: 46px;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: #FFE600;
+  border: 2px solid #000;
+  box-shadow: 0 0 0 2px rgba(255,255,255,0.25);
+}
+
+.stop .icon{
+  display:flex;
+  justify-content:center;
+}
+
+/* 포인트 위치 */
+.s0{ left: 0%; transform: translateX(0%); text-align:left; width: 200px; }
+.s1{ left: 25%; }
+.s2{ left: 50%; }
+.s3{ left: 75%; }
+.s4{ left: 100%; transform: translateX(-100%); text-align:right; width: 200px; }
+
+/* 이동 아이콘 공통 */
+.mover{
+  position:absolute;
+  top: 42px;               /* 선 위 */
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  filter: drop-shadow(0 1px 0 rgba(0,0,0,0.25));
+}
+
+/* 총 12s 루프 (시간은 그대로) */
+.subway.one{
+  animation: moveSub1 12s linear infinite;
+}
+.subway.two{
+  animation: moveSub2 12s linear infinite;
+}
+.foot{
+  animation: moveFoot 12s linear infinite;
+}
+.bus{
+  animation: moveBus 12s linear infinite;
+}
+
+/* 0%~25%: 0 -> 25% (지하철1) */
+@keyframes moveSub1{
+  0%   { left: 0%;  opacity:0; }
+  2%   { opacity:1; }
+  22%  { left:25%; opacity:1; }
+  26%  { opacity:0; }
+  100% { left:25%; opacity:0; }
+}
+
+/* 25%~50%: 25 -> 50% (지하철2) */
+@keyframes moveSub2{
+  0%   { left:25%; opacity:0; }
+  24%  { left:25%; opacity:0; }
+  26%  { opacity:1; }
+  48%  { left:50%; opacity:1; }
+  52%  { opacity:0; }
+  100% { left:50%; opacity:0; }
+}
+
+/* 50%~75%: 50 -> 75% (발자국) */
+@keyframes moveFoot{
+  0%   { left:50%; opacity:0; }
+  50%  { left:50%; opacity:0; }
+  52%  { opacity:1; }
+  74%  { left:75%; opacity:1; }
+  78%  { opacity:0; }
+  100% { left:75%; opacity:0; }
+}
+
+/* 75%~100%: 75 -> 100% (버스) */
+@keyframes moveBus{
+  0%   { left:75%; opacity:0; }
+  74%  { left:75%; opacity:0; }
+  76%  { opacity:1; }
+  98%  { left:100%; opacity:1; }
+  100% { left:100%; opacity:0; }
+}
