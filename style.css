@@ -41,7 +41,7 @@ header {
 #captionBox {
   position: fixed;
   display: none;
-  background-color: rgba(0, 255, 0, 1);
+  background-color: rgb(255, 230, 0);
   color: black;
   padding: 8px 12px;
   font-size: 1.2em;
