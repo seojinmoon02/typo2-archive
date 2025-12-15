@@ -3,29 +3,91 @@
   margin: 0;
   padding: 0;
 }
-body {
-  overflow-x: hidden;
+
+html {
+  scroll-behavior: smooth; /* ✅ 클릭 시 부드럽게 이동 */
+  scroll-padding-top: 90px; /* ✅ 상단바 때문에 섹션이 가려지는 것 방지 */
 }
 
-header {
+body {
+  overflow-x: hidden;
+  background: #fff;
+  cursor: url("cursor-arrow.svg") 2 2, auto;
+}
+
+.topbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 80px;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  padding-right: 20px;
+  background: transparent;
+}
+
+.menu {
+  display: flex;
+  gap: 14px;
+}
+
+
+/* 🔥 중앙 고정 제목 (이전 버전 그대로) */
+.main-title {
   width: 100%;
   height: 80px;
-  font-family: helvetica;
-  font-weight: 600;
-  font-size: 3em;
+
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 900;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1000;
+
+  font-family: helvetica, Arial, sans-serif;
+  font-weight: 600;
+  font-size: 3em;           /* ✅ 이전 크기 */
+  color: rgb(255, 230, 0);
+
+  pointer-events: none;     /* 이미지 호버 방해 방지 */
 }
 
+
+.menu-btn {
+  font-family: helvetica, Arial, sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 1px;
+  color: rgb(255, 230, 0);
+  text-decoration: none;
+
+  padding: 10px 12px;
+  border: 1.5px solid rgba(255, 230, 0, 0.9);
+  border-radius: 999px;
+
+  backdrop-filter: blur(6px);
+}
+
+.menu-btn:hover {
+  background: rgba(255, 230, 0, 0.15);
+}
+
+/* 아카이브 */
+.archive {
+  background: #fff;
+}
+
+/* 그리드 */
 .container {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  padding: 80px 20px 20px;
+  padding: 100px 20px 20px; /* ✅ topbar 공간 고려 */
   row-gap: 30px;
   height: auto;
 }
@@ -38,17 +100,82 @@ header {
   cursor: pointer;
 }
 
+/* 캡션 */
 #captionBox {
   position: fixed;
   display: none;
   background-color: rgb(255, 230, 0);
   color: black;
   padding: 8px 12px;
-  font-size: 1.2em;
+  font-size: 1.05em;
+  font-family: Helvetica, Arial, sans-serif; /* ✅ 산세리프 */
   border: 1.5px solid black;
   pointer-events: none;
   z-index: 999;
-  max-width: 130px;
+  max-width: 160px;
   white-space: pre-wrap;
-  word-break: keep-all; /*하이픈 제거*/
+  word-break: keep-all;
+}
+
+/* ✅ 에세이 섹션 */
+.essay {
+  background: #000;
+  color: #fff;
+  padding: 90px 20px 110px;
+}
+
+.essay-inner {
+  width: min(900px, 92vw);
+  margin: 0 auto;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.9;
+  letter-spacing: 0.2px;
+}
+
+/* ✅ 문단 양끝정렬 */
+.essay-inner p {
+  margin-bottom: 22px;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+/* 마지막 문장 강조 */
+.essay-highlight {
+  color: rgb(255, 230, 0);
+  font-weight: 800;
+}
+
+/* ✅ Contact */
+.contact {
+  margin-top: 60px;
+  padding-top: 25px;
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.contact-name {
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  margin-bottom: -4px;
+}
+
+.contact-en {
+  font-weight: 500;
+  opacity: 0.9;
+  margin-left: 8px;
+}
+
+.contact-mail {
+  opacity: 0.9;
+}
+
+.contact-mail a {
+  color: rgb(255, 230, 0);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 230, 0, 0.6);
+  margin-left: 8px;
+}
+
+.contact-mail a:hover {
+  border-bottom-color: rgba(255, 230, 0, 1);
 }
