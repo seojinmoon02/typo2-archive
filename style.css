@@ -106,15 +106,43 @@ body {
   display: none;
   background-color: rgb(255, 230, 0);
   color: black;
-  padding: 8px 12px;
+  padding: 10px 12px;
   font-size: 1.05em;
+  font-weight: 700;
   font-family: Helvetica, Arial, sans-serif; /* ✅ 산세리프 */
-  border: 1.5px solid black;
+  border: 5.5px solid black;
+  border-radius: 10px;
   pointer-events: none;
   z-index: 999;
   max-width: 160px;
   white-space: pre-wrap;
   word-break: keep-all;
+}
+
+/* 캡션 내용용 */
+#captionText{
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+/* START/END 표지판 뱃지 */
+.signBadge{
+  display: none;                 /* 기본은 숨김 */
+  width: fit-content;
+  padding: 4px 8px;
+  margin-bottom: 6px;
+
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: 800;
+  font-size: 0.95em;
+  letter-spacing: 1px;
+
+  background: #000;
+  color: rgb(255, 230, 0);
+  border: 1px solid #000;
+  border-radius: 6px;
+}
+.signBadge.show{
+  display: inline-block;
 }
 
 /* ✅ 에세이 섹션 */
@@ -179,3 +207,63 @@ body {
 .contact-mail a:hover {
   border-bottom-color: rgba(255, 230, 0, 1);
 }
+
+/* 발자국 레이어가 아카이브 위에 올라오도록 */
+.archive { position: relative; }
+
+#footstepLayer{
+  position: absolute;
+  inset: 0;               /* archive 영역 전체 */
+  pointer-events: none;
+  z-index: 20;            /* 이미지보다 위로 */
+}
+
+/* 발자국(노란색 + 얇은 검정 아웃라인) */
+.footprint{
+  position: absolute;
+  width: 14px;
+  height: 18px;
+  background: rgb(255, 230, 0);
+  border-radius: 10px 10px 12px 12px;
+  transform-origin: 50% 50%;
+  opacity: 0;
+  filter: drop-shadow(0 1px 0 rgba(0,0,0,0.15));
+}
+
+/* 발가락 느낌(작은 점들) */
+.footprint::before{
+  content:"";
+  position:absolute;
+  top:-7px;
+  left:3px;
+  width:4px;
+  height:4px;
+  background: rgb(255, 230, 0);
+  border-radius: 50%;
+  box-shadow:
+    6px 1px 0 0 rgb(255, 230, 0),
+    6px 1px 0 0 rgba(0,0,0,0),
+    12px 4px 0 0 rgb(255, 230, 0);
+}
+
+/* 등장 애니메이션 */
+.footprint.show{
+  animation: stepPop 900ms ease-out forwards;
+}
+
+@keyframes stepPop{
+  0%   { opacity: 0; transform: translate(-50%, -50%) scale(0.7) rotate(var(--rot)); }
+  12%  { opacity: 1; transform: translate(-50%, -50%) scale(1.05) rotate(var(--rot)); }
+  100% { opacity: 0; transform: translate(-50%, -50%) scale(1) rotate(var(--rot)); }
+}
+
+/* 캡션 배경 색상 변형 */
+#captionBox.green {
+  background-color: #21ac52; /* 초록 */
+}
+
+#captionBox.blue {
+  background-color: #438bff; /* 하늘 */
+}
+
+
